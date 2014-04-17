@@ -1,0 +1,47 @@
+body {
+  background: #efeece;
+  font-family: monospace;
+  padding: 20px;
+}
+
+hr {
+    border-top:1px dotted #000;
+}
+
+form {
+  margin: 0px;
+}
+
+#output {
+  background: #fff;
+  border: 2px solid #000;
+  border-bottom: 0px;
+  background: #fff;
+  height: 300px;
+  max-width: 500px;
+  margin: auto;
+  overflow: auto;
+  padding: 20px;
+  width: 70%;
+}
+
+#input {
+  background: #cfcecc;
+  border: 2px solid #000;
+  margin: auto;
+  max-width: 550px;
+  padding:15px;
+  width: 80%;
+}
+
+#input-text {
+  border: 2px solid black;
+  max-width: 480px;
+  width: 76%;
+}
+
+#input-button {
+  background: #fff;
+  border: 2px solid black;
+  cursor: pointer;
+}

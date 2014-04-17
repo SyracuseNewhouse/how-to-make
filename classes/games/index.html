@@ -1,0 +1,39 @@
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="game.css" />
+    <script type="text/javascript" src="jquery.min.js"></script>
+    <script type="text/javascript" src="game-bootstrap.js"></script>
+
+    <script type="text/javascript">
+
+      function start() {
+        // In our game, the "start" function will get called exactly one time
+        // and that time is right at the start of the game.
+        // You can see where this is called by looking at the game-bootstrap.js file
+        // The return value here will be output
+
+        return "Enter your game instructions here";
+      }
+
+      function handleInput(value) {
+        // This function gets called from the game-bootstrap.js file
+        // For now, it is good enough to know that this gets called whenever you hit the "Submit" button
+        // And the value you return will get displayed in the output box
+        
+        return "This is an example!";
+      }
+
+    </script>
+  </head>
+  <body>
+    <div id="output"></div>
+    <div id="input">
+        <form id="input-form">
+            <input type="text" id="input-text" />
+            <input type="submit" value="Submit" id="input-button"/>
+        </form>
+    </div>
+
+    <center><h1><a href="game.zip">Download the code!</a></h1></center>
+  </body>
+</html>

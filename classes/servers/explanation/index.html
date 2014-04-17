@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<link rel="stylesheet" type="text/css" href="css/style.css" />
+		<title>Your Server: A quick guide</title>
+	</head>
+<body>
+
+<h2>Your Server: A quick guide</h2>
+
+<p>Technology is kind of a pain when you don&#39;t understand what the heck is going on. Sorry for that everyone. This document explains what we&#39;re trying to do with our server, how we are trying to do it, and how it works.</p>
+
+<h3>Your Server</h3>
+
+<p>Everyone in this class has been given a computer. The thing is, the computer is sitting somewhere in the world that we can&#39;t access. Probably in North Carolina or something. It&#39;s in a giant warehouse owned by Amazon, filled with thousands of other computers.</p>
+
+<p>None of these computers have monitors or keyboards. They are basically just hard drives connected to the Internet. You know that scene in the Matrix where you see all the people pods in red goop? It&#39;s like that, but computers, and also no red goop.</p>
+
+<p>I set up each of your computers to have HTTP server software -- this means there is a program installed that listens for HTTP requests, and knows how to respond. This is why, if you type in the &quot;IP Address&quot; I sent you, you will see a web site (it&#39;s a boring web site, but it&#39;s still a web site).</p>
+
+<h4>WAIT. What is an IP address?</h4>
+
+<p>An IP address for a computer is kind of like a street address for a house. It is what allows messages to get to the computer. When you type your computer&#39;s IP address into your browser and hit &quot;enter&quot; what happens is your browser sends a message to the internet saying &quot;Please send this message to THIS.IP.ADD.RESS&quot;</p>
+
+<p>Routers are the things that know where to send the message -- routers are like the USPS, or UPS, or FedEx, whichever you prefer.</p>
+
+<h4>Back to your server…</h4>
+
+<p>So, if your server is in a warehouse, how can you interact with it? That&#39;s where Terminal comes in. Terminal lets you &quot;log in&quot; to your server from anywhere in the world. You can look around, jump from file to file, and generally do anything with a remote server that you could do with the computer in front of you.</p>
+
+<p>This is why we care about Terminal. By learning to do things in Terminal, you are learning to do things on your server.</p>
+
+<p>But your server won&#39;t just let anyone in the world connect and poke around. That would be terrible, and insecure, and dangerous. What would stop someone from logging onto your server and framing you for murder? Nothing.</p>
+
+<p>This is where <code>SSH</code> comes in. SSH is the program that lets you connect to your server securely. It stands for &quot;Secure Shell&quot; (the H is part of &quot;SHell&quot;). I guess &quot;SS&quot; was too short or something.</p>
+
+<p>Anyway, SSH uses a thing called <code>SSL</code> to keep your communications secret, safe, and hidden behind lock and key. SSL is kind of like username and password, but a bit different. With SSL you don&#39;t have a password, instead there is, well, a lock and a key.</p>
+
+<h4>SSL and Keys</h4>
+
+<p>In SSL, the &quot;lock&quot; is not called a lock, it is called a <code>public key</code> -- this is a file you can share with people, and those people can put it on their servers and that will let you log into them. </p>
+
+<p>There is also a <code>private key</code> -- this is the actual key, it is what I gave all of you (htmao-student.pem) and you need to keep it secret. If anyone has your private key, they can act like they are you.</p>
+
+<p>Fun fact: since you are all using the same private key, you can all log into each other&#39;s servers! Don&#39;t abuse this, but feel free to poke around for fun.</p>
+
+<p>On Thursday we were simply trying to &quot;register&quot; your private key on your computer so that when your computer tried to connect to the server, the server would let it in.</p>
+
+<h4>FileZilla</h4>
+
+<p>Terminal is great for poking around your server, but how do you move files from your computer onto your server? Once you SSH in, you are no longer working on your own computer, so that&#39; won&#39;t work. This is where FileZilla comes in.</p>
+
+<p>FileZilla makes it possible to connect to your server, and then drag files from your computer into folders on your server (and the other way around, actually). FileZilla uses SSL behind the scenes, which is why we are using &quot;SFTP&quot; which means &quot;Secure FTP&quot;</p>
+
+<p>Because of the fact that FileZilla uses SSL, you need to register your private key with FileZilla so that it can log into your server on your behalf. From there, you just add files and folders at your leisure!</p>
+
+<h4>But wait… Where do I add my files?</h4>
+
+<p>Great question.</p>
+
+<p>Your server is a full blown computer. It isn&#39;t just a single folder, it is just like your laptop, with tons of folders full of files and programs.</p>
+
+<p>There is a single, special folder on your server. This is called the &quot;web directory.&quot; It is called that because this is the folder that your server&#39;s HTTP software will send to the internet in response to HTTP requests.</p>
+
+<p>I know where this folder is because I put it there. It is also in a standard place, so most servers have it (just like &quot;Documents&quot; is a standard folder that most computers have, and you would use it to store your documents).</p>
+
+<p>This folder is called <code>/var/www</code></p>
+
+<h4>File Systems</h4>
+
+<p>In Unix, and OSX, folders are separated by <code>/</code> -- this means that the very lowest folder, the one that contains everything, starts at <code>/</code></p>
+
+<p>If you go to the <code>/</code> folder you will see what I mean. It&#39;s filled with nerdy looking files and folders, most of which are only used by your operating system. You won&#39;t have permission to do anything here but look, which is a good thing actually.</p>
+
+<p>If you go to <code>/</code> you will see a <code>var</code> folder in there. You can double click it. Now you will see that you are in <code>/var</code></p>
+
+<p>From there you will see <code>www</code> &lt;-- click that too.</p>
+
+<p>Now you are in your web directory. Look at all familiar? If not, just type your server IP address in your browser. You should see the same thing! This is your web directory. Adding a file here puts it on the internet.</p>
+
+<p>Wow!</p>
+
+<h4>index.html</h4>
+
+<p>Normally your web server just takes in file requests and spits them out. Want to load <code>pants.html</code>? Type <code>YOUR.IP.GOES.HERE/pants.html</code> and you will get it.</p>
+
+<p>But there is a special one: <code>index.html</code></p>
+
+<p><code>index.html</code> is the &quot;default&quot; file to send if nothing is specified. This means if your <code>/var/www</code> folder has an index.html in it, that will be served if you just go to YOUR.IP.GOES.HERE without specifying a file to load.</p>
+
+<p>Otherwise, your web server will send a <code>directory</code> view by default.</p>
+
+</body>
+</html>

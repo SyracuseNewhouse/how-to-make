@@ -47,13 +47,34 @@
 
 <p>On Thursday we were simply trying to &quot;register&quot; your private key on your computer so that when your computer tried to connect to the server, the server would let it in.</p>
 
+<p>Here are the instructions if you want to set this up yourself:</p>
+
+<pre><code>1) Download the key to your downloads folder.
+2) Save it as &quot;htmao-student.pem&quot;
+3) Open Terminal
+4) type &quot;cd&quot; to go to your home directory
+5) type &quot;chmod 600 Downloads/htmao-student.pem&quot; to change permissions
+6) type &quot;ssh-add Downloads/htmao-student.pem&quot;
+</code></pre>
+
+<p>Step 5 makes your private key safe (only you should be allowed to use your key). Step 6 registers it on your computer.</p>
+
+<p>Now when you want to connect to your server, you can type:</p>
+
+<pre><code>ssh ubuntu@YOUR.IP.GOES.HERE
+</code></pre>
+
+<p>And boom, you&#39;re in! You can install applications, navigate, add files, whatever! This is a computer that is always on, and always connected to the Internet. Want to host minecraft? Boom. A voice chat program? Go for it. The sky is the limit!</p>
+
 <h4>FileZilla</h4>
 
 <p>Terminal is great for poking around your server, but how do you move files from your computer onto your server? Once you SSH in, you are no longer working on your own computer, so that&#39; won&#39;t work. This is where FileZilla comes in.</p>
 
 <p>FileZilla makes it possible to connect to your server, and then drag files from your computer into folders on your server (and the other way around, actually). FileZilla uses SSL behind the scenes, which is why we are using &quot;SFTP&quot; which means &quot;Secure FTP&quot;</p>
 
-<p>Because of the fact that FileZilla uses SSL, you need to register your private key with FileZilla so that it can log into your server on your behalf. From there, you just add files and folders at your leisure!</p>
+<p>Because of the fact that FileZilla uses SSL, you need to register your private key with FileZilla so that it can log into your server on your behalf. You do this by getting to the &quot;Preferences&quot; menu (sitting under. the &quot;File&quot; menu on the top of your screen). Click &quot;SFTP&quot; and then &quot;Add Key&quot; and add the key you downloaded.</p>
+
+<p>From there, you just add files and folders at your leisure.</p>
 
 <h4>But wait… Where do I add my files?</h4>
 
